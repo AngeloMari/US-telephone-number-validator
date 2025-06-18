@@ -1,0 +1,305 @@
+:root {
+  --housing-color1: #253456;
+  --housing-color2: #1c386c;
+  --housing-color3: #4b679d;
+  --screen-color: #1d1d1d;
+  --border-color: #000000;
+  --nav-hint: #656667;
+  --text-color: #f0f0f0;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+html,
+body {
+  height: auto;
+  min-height: 100vh;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background: linear-gradient(#a1bad9, #e5eaf0, #f0f1f3);
+}
+
+/* App title */
+h1,
+#user-input {
+  text-align: center;
+}
+h1 {
+  padding: 0 0 20px 0;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1f2d47;
+}
+
+/* Phone house */
+#house {
+  position: relative;
+  aspect-ratio: 206 / 412;
+  width: 90vw;
+  max-width: 206px;
+  border: 1px solid var(--housing-color1);
+  border-radius: 30px;
+  background: linear-gradient(
+    135deg,
+    var(--housing-color2) 15%,
+    var(--housing-color3) 30%,
+    var(--housing-color2) 45%,
+    var(--housing-color1) 60%,
+    var(--housing-color3) 75%,
+    var(--housing-color2)
+  );
+  box-shadow: 5px 5px 5px var(--nav-hint);
+}
+
+/* Phone screen */
+#screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 95%;
+  height: 98%;
+  border: 4px solid var(--border-color);
+  border-radius: 30px;
+  background-color: var(--screen-color);
+}
+
+/* Other phone parts */
+#clock,
+.status-bar {
+  z-index: 1;
+  position: absolute;
+  color: var(--text-color);
+}
+#clock {
+  top: 2.5%;
+  left: 12%;
+  font-size: 0.5rem;
+}
+.status-bar {
+  display: flex;
+  flex-direction: reverse-row;
+  top: 3%;
+  right: 12%;
+  font-size: 0.4rem;
+}
+.status-bar i {
+  margin-left: 3px;
+}
+
+#camera {
+  z-index: 1;
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    var(--nav-hint),
+    var(--border-color),
+    var(--border-color)
+  );
+}
+#nav-hint {
+  z-index: 1;
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 0.5%;
+  border-radius: 25px;
+  background-color: var(--nav-hint);
+}
+#volume-btn,
+#power-btn {
+  z-index: 1;
+  position: absolute;
+  right: -0.8%;
+  width: 1%;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--housing-color1),
+    var(--housing-color2),
+    var(--housing-color3)
+  );
+  box-shadow: 1px 1px 1px var(--housing-color1);
+}
+#volume-btn {
+  top: 20%;
+  height: 12%;
+}
+#power-btn {
+  top: 35%;
+  height: 8%;
+}
+
+/* User input */
+#user-input {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  border: none;
+  background: none;
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+input:focus {
+  outline: none;
+}
+
+/* Keypad */
+.keypad {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(3, 30%);
+  gap: 1% 5%;
+  width: 74%;
+  height: auto;
+  margin: 0;
+}
+.keys {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  background-color: var(--screen-color);
+  color: var(--text-color);
+}
+.keys:active {
+  background-color: var(--nav-hint);
+  border-radius: 50%;
+}
+
+/* Check and delete buttons */
+#btn-div {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.buttons {
+  aspect-ratio: 1 / 1;
+  width: 18%;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--screen-color);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.buttons:active {
+  filter: brightness(0.7);
+}
+#check-btn {
+  background-image: url("images/call\ icon.png");
+}
+#clear-btn {
+  background-image: url("images/delete\ icon.png");
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#clear-btn:not([hidden]) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Results */
+#results-div {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  width: 150px;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* Responsiveness */
+@media (min-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1.7rem;
+  }
+}
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  #house {
+    aspect-ratio: 231 / 491;
+    width: 90vw;
+    max-width: 231px;
+  }
+  #user-input {
+    font-size: 1.8rem;
+  }
+  .keys,
+  #results {
+    font-size: 1.5rem;
+  }
+  #clock,
+  #status-bar {
+    font-size: 0.6rem;
+  }
+}
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+  #house {
+    aspect-ratio: 257 / 545;
+    width: 90vw;
+    max-width: 257px;
+  }
+  #user-input {
+    font-size: 1.9rem;
+  }
+  .keys,
+  #results {
+    font-size: 1.6rem;
+  }
+  #clock,
+  #status-bar {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 1366px) {
+  h1 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Telephone Number Validator</title>
+  </head>
+  <body>
+    <h1>US Telephone <br />Number Validator</h1>
+    <div id="house">
+      <p id="clock">12:00</p>
+      <div class="status-bar">
+        <i class="fas fa-wifi"></i>
+        <i class="fas fa-signal"></i>
+        <i class="fas fa-battery-full"></i>
+      </div>
+      <div id="camera"></div>
+      <div id="volume-btn"></div>
+      <div id="power-btn"></div>
+      <div id="nav-hint"></div>
+      <div id="screen">
+        <input id="user-input" type="tel" />
+        <div class="keypad">
+          <button class="keys">1</button>
+          <button class="keys">2</button>
+          <button class="keys">3</button>
+          <button class="keys">4</button>
+          <button class="keys">5</button>
+          <button class="keys">6</button>
+          <button class="keys">7</button>
+          <button class="keys">8</button>
+          <button class="keys">9</button>
+          <div class="keys"></div>
+          <button class="keys">0</button>
+          <div class="keys"></div>
+        </div>
+        <div id="btn-div">
+          <button id="check-btn" class="buttons"></button>
+          <button id="clear-btn" class="buttons" hidden></button>
+        </div>
+        <div id="results-div"></div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
